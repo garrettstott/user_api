@@ -1,0 +1,1 @@
+json.error_messages @user.errors.full_messages 

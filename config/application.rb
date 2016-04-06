@@ -42,3 +42,4 @@ module UsersApi
     end
   end
 end
+end

@@ -40,8 +40,5 @@ module UsersApi
                                                      :options]
       end
     end
-
-  end
-end
   end
 end

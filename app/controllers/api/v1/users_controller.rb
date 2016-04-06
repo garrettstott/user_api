@@ -1,6 +1,6 @@
 class API::V1::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :user, except: [:index, :create]
+  before_action :user, except: [:index, :create, :search]
   
   def index
     @users = User.all
@@ -30,6 +30,11 @@ class API::V1::UsersController < ApplicationController
     user_id = @user.id 
     @user.destroy
     render json: {id: user_id}
+  end
+
+  def search
+    @users = User.where("lower(users.name) like ?", "%#{params[:term].downcase}%")
+    render :index
   end
 
   private
